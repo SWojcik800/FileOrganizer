@@ -33,4 +33,15 @@ class DataExtractor:
         files_with_m_times = self.extract_date("modifiedBy")
         return files_with_m_times
 
+    def extract_file_names(self):
+        files = os.listdir(self.directory)
 
+        files_with_names = [[f"{self.directory}/{i}", i] for i in files]
+        return files_with_names
+
+
+    def extract_first_letters_of_files(self):
+        files = self.extract_file_names()
+        files_with_letters = [ [ i[0], i[1].strip()[0].upper() ] for i in files]
+
+        return files_with_letters

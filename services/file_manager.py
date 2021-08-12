@@ -9,8 +9,8 @@ class FileManager:
         self.folder_names = None
 
 
-
     def create_folders(self):
+        print(self.formated_data)
         folder_names = set([ i[1] for i in self.formated_data ])
         self.folder_names = folder_names
 
@@ -34,6 +34,15 @@ class FileManager:
                 shutil.move(file, dest)
             except:
                 pass
+
+    def move_files_ignore_case(self):
+
+        for item in self.formated_data:
+            item[1] = item[1].upper()
+
+        self.move_files()
+
+
 
 
 
