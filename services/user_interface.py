@@ -5,6 +5,9 @@ class UserInterface:
         print("Select option from below\n")
         print("1. Organise files by year \n")
         print("2. Organise files by first letter \n")
+        print("3. Organise files by year and month \n")
+        print("4. Organise files by extension \n")
+
 
     @staticmethod
     def get_option():

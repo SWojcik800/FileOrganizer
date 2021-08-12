@@ -10,7 +10,7 @@ class FileManager:
 
 
     def create_folders(self):
-        print(self.formated_data)
+
         folder_names = set([ i[1] for i in self.formated_data ])
         self.folder_names = folder_names
 
@@ -27,9 +27,11 @@ class FileManager:
             try:
                 file = item[0]
                 dest = f"{self.base_dir}/{item[1]}"
+                print(file, dest)
 
                 #ignore created folders
                 if (file in self.folder_names): continue
+
 
                 shutil.move(file, dest)
             except:

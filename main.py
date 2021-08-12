@@ -11,13 +11,12 @@ def main():
     print("Select directory: \n")
     dir_path = UserInterface.get_dir()
 
-
-
     extractor = DataExtractor(dir_path)
 
-    if (option == 1):
+    if option == 1:
 
         files_with_dates = extractor.extract_created_at_date()
+        print(files_with_dates)
         files_with_years = extractor.to_years(files_with_dates)
 
         file_manager = FileManager(dir_path, files_with_years)
@@ -26,7 +25,7 @@ def main():
 
         print("Task completed")
 
-    if (option == 2):
+    if option == 2:
 
         files_with_first_letters = extractor.extract_first_letters_of_files()
         file_manager = FileManager(dir_path, files_with_first_letters)
@@ -35,6 +34,21 @@ def main():
         file_manager.move_files_ignore_case()
 
 
+        print("Task completed")
+
+    if option == 3:
+        files_with_dates = extractor.extract_created_at_year_and_month()
+        file_manager = FileManager(dir_path, files_with_dates)
+        file_manager.create_folders()
+        file_manager.move_files()
+
+        print("Task completed")
+
+    if option == 4:
+        files_with_extensions = extractor.extract_file_extensions()
+        file_manager = FileManager(dir_path, files_with_extensions)
+        file_manager.create_folders()
+        file_manager.move_files_ignore_case()
         print("Task completed")
 
 if __name__ == "__main__":
