@@ -8,6 +8,10 @@ class UserInterface:
         print("3. Organise files by year and month \n")
         print("4. Organise files by extension \n")
 
+    @staticmethod
+    def confirm(message: str):
+        print(f"{message} Y or N?")
+        return input().lower() == 'y'
 
     @staticmethod
     def get_option():

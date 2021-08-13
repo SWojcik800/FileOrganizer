@@ -1,15 +1,29 @@
 from services.user_interface import UserInterface
 from  services.data_extractor import DataExtractor
 from  services.file_manager import FileManager
+import helpers.config_parser as parser
 
 def main():
     print("App running")
 
-    UserInterface.show_dialog_window()
-    option = UserInterface.get_option()
+    use_settings_from_config_file = UserInterface.confirm("Use settings from config file")
 
-    print("Select directory: \n")
-    dir_path = UserInterface.get_dir()
+    if (use_settings_from_config_file):
+        config = parser.parse()
+        dir_path = config['Path']
+        option = int(config['Option'])
+
+        if (UserInterface.confirm(f"Path: {dir_path}, Option: {option}")):
+            extractor = DataExtractor(dir_path.strip())
+        else:
+            return
+
+    else:
+        UserInterface.show_dialog_window()
+        option = UserInterface.get_option()
+        print("Select directory: \n")
+        dir_path = UserInterface.get_dir()
+
 
     extractor = DataExtractor(dir_path)
 

@@ -27,7 +27,7 @@ class FileManager:
             try:
                 file = item[0]
                 dest = f"{self.base_dir}/{item[1]}"
-                print(file, dest)
+                print(f"{file} MOVED TO {dest}")
 
                 #ignore created folders
                 if (file in self.folder_names): continue
