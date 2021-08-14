@@ -9,31 +9,29 @@ class FileManager:
         self.folder_names = None
 
 
-    def create_folders(self):
-
-        folder_names = set([ i[1] for i in self.formated_data ])
-        self.folder_names = folder_names
-
-
-        for name in folder_names:
-            try:
-                os.mkdir(f"{self.base_dir}/{name}")
-            except:
-                pass
 
     def move_files(self):
+
+        folder_names = set([i[1] for i in self.formated_data])
+        self.folder_names = folder_names
 
         for item in self.formated_data:
             try:
                 file = item[0]
                 dest = f"{self.base_dir}/{item[1]}"
-                print(f"{file} MOVED TO {dest}")
+
+                if not (os.path.exists(dest) and os.path.isdir(dest)):
+                    try:
+                        os.mkdir(dest)
+                    except:
+                        pass
 
                 #ignore created folders
                 if (file in self.folder_names): continue
 
 
                 shutil.move(file, dest)
+                print(f"{file} MOVED TO {dest}")
             except:
                 pass
 

@@ -34,7 +34,6 @@ def main():
         files_with_years = extractor.to_years(files_with_dates)
 
         file_manager = FileManager(dir_path, files_with_years)
-        file_manager.create_folders()
         file_manager.move_files()
 
         print("Task completed")
@@ -43,8 +42,6 @@ def main():
 
         files_with_first_letters = extractor.extract_first_letters_of_files()
         file_manager = FileManager(dir_path, files_with_first_letters)
-
-        file_manager.create_folders()
         file_manager.move_files_ignore_case()
 
 
@@ -53,7 +50,6 @@ def main():
     if option == 3:
         files_with_dates = extractor.extract_created_at_year_and_month()
         file_manager = FileManager(dir_path, files_with_dates)
-        file_manager.create_folders()
         file_manager.move_files()
 
         print("Task completed")
@@ -61,7 +57,6 @@ def main():
     if option == 4:
         files_with_extensions = extractor.extract_file_extensions()
         file_manager = FileManager(dir_path, files_with_extensions)
-        file_manager.create_folders()
         file_manager.move_files_ignore_case()
         print("Task completed")
 
