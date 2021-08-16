@@ -7,7 +7,8 @@ Organizing options available:
  - by extension of the file: option 4
  
 You can specify option and directory to organize in appconfig.txt or enter it manually.
-#Running the script
+# Running the script
 To run the script run main.py in your IDE
-or enter command: python project_directory main.py
-For Python 3: python3 project_directory main.py
+or enter command: python project_directory/main.py
+
+For Python 3: python3 project_directory/main.py
